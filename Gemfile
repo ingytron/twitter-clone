@@ -35,8 +35,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'sqlite3'
   gem 'byebug', platform: :mri
-  gem 'web-console'
   gem 'spring'
+  gem 'minitest-reporters'
 end
 
 group :development do
@@ -48,9 +48,9 @@ group :development do
   # gem 'spring-watcher-listen', '~> 2.0.0'
 
   # Custom gems I can't install because our power is out
-  gem 'minitest-reporters'
   gem 'mini_backtrace'
   gem 'guard-minitest'
+  gem 'web-console'
 end
 
 group :production do
