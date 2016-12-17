@@ -6,6 +6,12 @@
 $light-grey: #777;
 $dark-grey: #333;
 
+@mixin box_sizing {
+  -mox-box-sizing: border -box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /* Default styling - just want to mess around with default bootstrap styles */
 
 html {position: relative;
@@ -35,6 +41,15 @@ textarea { resize: vertical; }
   }
 }
 
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box-sizing;
+}
+
+
 /* Typography settings */
 
 h1, h2, h3, h4, h5, h6 { line-height: 1.2em; }
@@ -42,7 +57,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.2em; }
 h1 {size: 3em;
   margin-bottom: 10px;
 }
-  // Also not adding negative letter-spacing because it's an affront to typography and borderline evil.
+  // Not adding negative letter-spacing because it's an affront to typography and borderline evil.
 
 h2 {size: 2.5em; }
 
@@ -56,8 +71,67 @@ h6 { size: 1.2em;}
 
 p {line-height: 1.2em;}
 
+/* sidebar */
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
 
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+.gravatar_edit {
+  margin-top: 15px;
+}
 
+/* form styling */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error-explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
 /* footer styling */
 // This is meant to be a boostrap sticky footer but it isn't working. TODO: Fix sticky footer
 .footer {
