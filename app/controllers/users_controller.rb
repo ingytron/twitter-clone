@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  respond_to :html # this I added during troubleshooting
+
   def show
     @user = User.find(params[:id])
     # debugger
@@ -10,13 +13,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      flash[:success] = "Welcome and thanks for signing up!"
-      redirect_to @user
-    else
-      render 'new'
-    end
-  end
+    respond_to do |format| #also this
+      if @user.save
+        format.html do # and this
+          flash[:success] = "Welcome and thanks for signing up!"
+          redirect_to @user
+        end
+      else
+        format.html { render 'new' }
+      end
+    end #end respond_to
+  end # end create
 
   def edit
   end
