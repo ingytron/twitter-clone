@@ -12,16 +12,20 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    # @user = User.new(user_params)
+    @user = User.create(user_params)
     respond_to do |format| #also this
       if @user.save
-        format.html do # and this
-          flash[:success] = "Welcome and thanks for signing up!"
-          redirect_to @user
-        end
+        # format.html do  # and this
+        format.html { redirect_to @user }
+        flash[:success] = "Welcome and thanks for signing up!"
+        # redirect_to @user
+        # end
       else
-        format.html { render 'new' }
-      end
+        # format.html { render 'new' }
+        format.html { redirect_to new_user_path }
+        flass[:warning] = "This did not work, I wonder why..."
+      end # ends conditional
     end #end respond_to
   end # end create
 
