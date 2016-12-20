@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     # @user = User.new(user_params)
     @user = User.create(user_params)
-    respond_to do |format| #also this
+    # respond_to do |format| #also this
       if @user.save
         # format.html do  # and this
         format.html { redirect_to @user }
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
         format.html { redirect_to new_user_path }
         flass[:warning] = "This did not work, I wonder why..."
       end # ends conditional
-    end #end respond_to
+    # end #end respond_to
   end # end create
 
   def edit
