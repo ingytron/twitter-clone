@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
 
-  respond_to :html # this I added during troubleshooting
+  # respond_to :html # this I added during troubleshooting
 
   def show
-    @user = User.find(params[:id])
+    respond_to do |format|
+      @user = User.find(params[:id])
+      format.html { redirect_to new_user_path }
+    end
     # debugger
   end
 
@@ -14,20 +17,25 @@ class UsersController < ApplicationController
   def create
     # @user = User.new(user_params)
     @user = User.create(user_params)
-    # respond_to do |format| #also this
+    #this was addded during troubleshooting
+    respond_to do |format|
       if @user.save
+        log_in @user
         # format.html do  # and this
-        format.html { redirect_to @user }
-        flash[:success] = "Welcome and thanks for signing up!"
+        # format.html { redirect_to @user } # error given "too few arguments" !?
         # redirect_to @user
+        flash[:success] = "Welcome and thanks for signing up!"
+        redirect_to @user
         # end
       else
+        render 'new'
         # format.html { render 'new' }
-        format.html { redirect_to new_user_path }
-        flass[:warning] = "This did not work, I wonder why..."
+        # format.html { redirect_to new_user_path }
+        # redirect_to new_user_path
+        flash[:warning] = "This did not work, I wonder why..."
       end # ends conditional
-    # end #end respond_to
-  end # end create
+    end #ends respond_to
+  end # create
 
   def edit
   end

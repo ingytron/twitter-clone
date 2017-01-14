@@ -132,6 +132,22 @@ input {
     color: $state-danger-text;
   }
 }
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  margin-left: -10px;
+  line-height: 20px;
+  span {
+    margin-left: 50px;
+    // font-weight: bold;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: -10px;
+}
 /* footer styling */
 // This is meant to be a boostrap sticky footer but it isn't working. TODO: Fix sticky footer
 .footer {

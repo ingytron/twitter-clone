@@ -2,7 +2,7 @@
 
     <div class="row">
       <div class="col-md-3">
-        <h1><%= link_to "sample app", root_path, id: "logo" %></h1>
+        <h1><%= link_to "Bettwitter", root_path, id: "logo" %></h1>
       </div>
       <div class="col-md-4 pull-right">
         <nav>
@@ -17,7 +17,9 @@
                   <li><%= link_to "Profile", current_user %></li>
                   <li><%= link_to "Settings", "#" %></li>
                   <li class="divider"></li>
-                  <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+                  <li>
+                    <%= link_to "Log out", logout_path, method: "delete" %>
+                  </li>
                 </ul>
               </li>
               <% else %>
