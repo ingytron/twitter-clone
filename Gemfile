@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby '2.3.1'
 gem 'rails', '>= 5.0.0.1'
 # gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'bootstrap-sass'
@@ -26,7 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '3.1.11'
 gem 'sdoc', '1.0.0', group: :doc
 
 # Use Capistrano for deployment
@@ -35,7 +36,7 @@ gem 'sdoc', '1.0.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3'
-  gem 'byebug', platform: :mri
+  gem 'byebug', '10.0.0', platform: :mri
   gem 'spring'
   # gem 'json', '>= 2.1.0'
   #  gem 'web-console' <= This isn't meant to run in a test env (according to error msg)
