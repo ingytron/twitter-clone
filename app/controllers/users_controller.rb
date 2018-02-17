@@ -24,7 +24,7 @@ class UsersController < ApplicationController
         # format.html do  # and this
         # format.html { redirect_to @user } # error given "too few arguments" !?
         # redirect_to @user
-        flash[:success] = "Welcome and thanks for signing up!"
+        flash[:success] = "Welcome and thanks for signing in!"
         redirect_to @user
         # end
       else
@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   end # create
 
   def edit
+    @user = User.find(params[:id])
   end
 
   private
